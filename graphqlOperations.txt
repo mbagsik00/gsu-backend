@@ -1,0 +1,71 @@
+query ($userId: Int!) {
+  getUserAvailability(userId: $userId) {
+    weekNumber
+    id
+    day
+    start
+    end
+    status
+  }
+}
+
+mutation CreateUser {
+  createUser(user: {
+    firstName: "melvin",
+    lastName: "bagsik"
+  }) {
+    id
+    firstName
+    lastName
+  }
+}
+
+mutation CreateStudent {
+  createStudent (student: {
+    firstName: "melvin",
+    lastName: "bagsik"
+  }) {
+    id
+    firstName
+    lastName
+  }
+}
+
+mutation AddUserAvailability {
+  addUserAvailability(availability: {
+    userId: 1,
+    weekNumber: 1,
+    availability: {
+      day: "MONDAY",
+      start: "2023-02-19T07:19:23.274Z",
+      end: "2023-02-19T08:19:23.274Z"
+    }
+  }) {
+    id,
+    weekNumber,
+    day,
+    start,
+    end,
+    status
+  }
+}
+
+query GetUserAvailability {
+  getUserAvailability(userId: 1) {
+    id
+    weekNumber
+    day
+    start
+    end
+    status
+  }
+}
+
+mutation BookClass {
+  bookClass(booking: {
+    studentId: 1,
+    availabilityId: 1
+  }) {
+    availabilityId
+  }
+}

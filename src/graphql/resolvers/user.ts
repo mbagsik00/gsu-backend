@@ -1,18 +1,11 @@
+import { createUser, IUser } from '../../services/user';
+
 export const resolvers = {
   Query: {
-    user: async (_parent, args, { db }) => 'Placeholder',
+    user: async (_parent, args) => 'Placeholder',
   },
   Mutation: {
-    createUser: async (_parent, { user }, { db }) => {
-      const { firstName, lastName } = user;
-
-      const result = await db.user.create({
-        firstName,
-        lastName,
-      });
-
-      return result;
-    },
-    updateUser: async (_parent, args, { db }) => 'Placeholder',
+    createUser: async (_parent, { user }): Promise<IUser> => createUser(user),
+    updateUser: async (_parent, args) => 'Placeholder',
   },
 };

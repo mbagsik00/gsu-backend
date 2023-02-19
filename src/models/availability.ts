@@ -1,12 +1,12 @@
 import { DataTypes } from 'sequelize';
 import database from '../database';
 
-const enum AvailabilityStatus {
+export enum AvailabilityStatus {
   available = 'AVAILABLE',
   booked = 'BOOKED',
 }
 
-const enum AvailabilityDay {
+export enum AvailabilityDay {
   monday = 'MONDAY',
   tuesday = 'TUESDAY',
   wednesday = 'WEDNESDAY',

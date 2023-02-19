@@ -20,7 +20,8 @@
     "graphql": "^16.6.0",
     "graphql-tag": "^2.12.6",
     "sequelize": "^6.28.0",
-    "sqlite3": "^5.1.4"
+    "sqlite3": "^5.1.4",
+    "yup": "^1.0.0"
   },
   "devDependencies": {
     "@types/jest": "27.0.2",
