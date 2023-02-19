@@ -11,6 +11,7 @@ import { resolvers as availabilityResolvers } from './graphql/resolvers/availabi
 import { resolvers as studentResolvers } from './graphql/resolvers/student';
 import { resolvers as studentClassResolvers } from './graphql/resolvers/studentClass';
 import { resolvers as userResolvers } from './graphql/resolvers/user';
+import { Sequelize } from 'sequelize';
 
 const server = new ApolloServer({
   typeDefs: [
@@ -27,8 +28,12 @@ const server = new ApolloServer({
   ],
 });
 
+interface ContextValue {
+  db: Sequelize;
+}
+
 const startServer = () =>
-  startStandaloneServer(server, {
+  startStandaloneServer<ContextValue>(server, {
     listen: { port: 4000 },
     context: async () => ({
       db: database,

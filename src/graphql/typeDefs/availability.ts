@@ -3,15 +3,11 @@ import gql from 'graphql-tag';
 export const typeDefs = gql`
   type Availability {
     availabilityId: Int!
+    weekNumber: Int!
     day: String!
     start: String!
     end: String!
     status: String!
-  }
-
-  type UserAvailability {
-    weekNumber: Int!
-    availability: [Availability!]!
   }
 
   input AvailabilityDateTime {
@@ -21,15 +17,14 @@ export const typeDefs = gql`
     status: String
   }
 
-  # Input for adding new availablity record for the user
   input AddAvailabilityInput {
     userId: Int!
     weekNumber: Int!
     availability: AvailabilityDateTime!
   }
 
-  # Input for updating single availablity
   input UpdateAvailabilityInput {
+    weekNumber: Int!
     day: String!
     start: String!
     end: String!
@@ -37,7 +32,7 @@ export const typeDefs = gql`
   }
 
   type Mutation {
-    addUserAvailability(availability: AddAvailabilityInput!): UserAvailability
+    addUserAvailability(availability: AddAvailabilityInput!): Availability
 
     updateUserAvailability(
       availabilityId: Int!
@@ -46,6 +41,6 @@ export const typeDefs = gql`
   }
 
   type Query {
-    getUserAvailability(userId: Int!): [UserAvailability]
+    getUserAvailability(userId: Int!): [Availability]
   }
 `;

@@ -1,8 +1,8 @@
 export const resolvers = {
   Query: {
-    getClasses: async () => 'Placeholder',
+    getClasses: async (_parent, args, { db }) => 'Placeholder',
   },
   Mutation: {
-    bookClass: async () => 'Placeholder',
+    bookClass: async (_parent, args, { db }) => 'Placeholder',
   },
 };

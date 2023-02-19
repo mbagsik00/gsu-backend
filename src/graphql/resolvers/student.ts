@@ -1,9 +1,9 @@
 export const resolvers = {
   Query: {
-    student: async () => 'Placeholder',
+    student: async (_parent, args, { db }) => 'Placeholder',
   },
   Mutation: {
-    createStudent: async () => 'Placeholder',
-    updateStudent: async () => 'Placeholder',
+    createStudent: async (_parent, args, { db }) => 'Placeholder',
+    updateStudent: async (_parent, args, { db }) => 'Placeholder',
   },
 };
