@@ -7,8 +7,8 @@ import Availability, {
 interface IAvailabilityDetails {
   weekNumber: number;
   day: AvailabilityDay;
-  start: string;
-  end: string;
+  start: string; // TODO: Just time
+  end: string; // TODO: Just time
   status?: AvailabilityStatus;
 }
 
@@ -33,9 +33,10 @@ export const addUserAvailability = async (
 export const getUserAvailability = async (
   userId: number
 ): Promise<IAvailability[]> => {
-  // TODO:
-  // - Sort by week number
-  const result = await Availability.findAll({ where: { userId } });
+  const result = await Availability.findAll({
+    where: { userId },
+    order: [['weekNumber', 'ASC']],
+  });
 
   return parseResult(result);
 };

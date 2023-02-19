@@ -4,3 +4,4 @@
 - tests
 - services folder and put all implementation there
   - Context value can be removed
+- availabilit start and end should be just time
