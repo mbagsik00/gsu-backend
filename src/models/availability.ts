@@ -71,4 +71,6 @@ const Availability = database.define('availability', {
   },
 });
 
+Availability.sync();
+
 export default Availability;

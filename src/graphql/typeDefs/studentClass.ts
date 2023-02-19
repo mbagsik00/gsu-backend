@@ -2,27 +2,25 @@ import gql from 'graphql-tag';
 
 export const typeDefs = gql`
   input BookClassInput {
-    weekNumber: Int!
-    availablityId: Int!
+    studentId: Int!
+    availabilityId: Int!
   }
 
   type ClassBooking {
     userId: Int!
     availabilityId: Int!
+    weekNumber: Int!
+    day: String!
     start: String!
     end: String!
-  }
-
-  type StudentClassBooking {
-    weekNumber: Int!
-    classes: [ClassBooking!]
+    status: String!
   }
 
   extend type Mutation {
-    bookClass(studentId: Int!, booking: BookClassInput): [StudentClassBooking]
+    bookClass(booking: BookClassInput): ClassBooking
   }
 
   extend type Query {
-    getClasses(studentId: Int!, weekNumber: Int): [StudentClassBooking]
+    getClasses(studentId: Int!, weekNumber: Int): [ClassBooking]
   }
 `;

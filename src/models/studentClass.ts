@@ -17,4 +17,6 @@ const StudentClassBooking = database.define('student_class_booking', {
   },
 });
 
+StudentClassBooking.sync();
+
 export default StudentClassBooking;

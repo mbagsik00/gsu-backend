@@ -17,4 +17,6 @@ const Student = database.define('student', {
   },
 });
 
+Student.sync();
+
 export default Student;

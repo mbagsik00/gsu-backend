@@ -17,4 +17,6 @@ const User = database.define('user', {
   },
 });
 
+User.sync();
+
 export default User;

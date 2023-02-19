@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 
 export const typeDefs = gql`
   type Availability {
-    availabilityId: Int!
+    id: Int!
     weekNumber: Int!
     day: String!
     start: String!
